@@ -85,6 +85,7 @@ edu %>%
   count(codmpio) %>% 
   summary()  # obs per municipality
 
+##Grouping s11 scores by year - we only have data from 2000 - 2020
 edu_year <- edu %>%
   group_by(ano) %>%
   summarise(
@@ -101,4 +102,79 @@ ggplot(edu_year, aes(x = ano, y = mean_s11)) +
     x = "Year", y = "Mean s11 score"
   )
 
-visdat::vis_dat(edu)
+
+
+##Grouping s11 scores by year - we only have data from 2000 - 2020
+s11_year <- edu %>%
+  group_by(ano) %>%
+  summarise(
+    mean_s11 = mean(s11_score_total, na.rm = TRUE),
+    median_s11 = median(s11_score_total, na.rm = TRUE),
+    sd_s11 = sd(s11_score_total, na.rm = TRUE)
+  )
+
+ggplot(s11_year, aes(x = ano, y = mean_s11)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Average s11 score over time",
+    x = "Year", y = "Mean s11 score"
+  )
+
+
+##Grouping student totals by year
+student_year <- edu %>%
+  group_by(ano) %>%
+  summarise(
+    mean_stud = mean(students_total, na.rm = TRUE),
+    median_stud = median(students_total, na.rm = TRUE),
+    sd_stud = sd(students_total, na.rm = TRUE)
+  )
+
+ggplot(student_year, aes(x = ano, y = mean_stud)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Average students over time",
+    x = "Year", y = "Mean Students"
+  )
+
+
+##Grouping gross coverage totals by year
+gross_cov_year <- edu %>%
+  group_by(ano) %>%
+  summarise(
+    mean_gross_cov = mean(gross_cov_edu, na.rm = TRUE),
+    median_gross_cov = median(gross_cov_edu, na.rm = TRUE),
+    sd_gross_cov = sd(gross_cov_edu, na.rm = TRUE)
+  )
+
+ggplot(gross_cov_year, aes(x = ano, y = mean_gross_cov)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Average Gross Cov Edu over time",
+    x = "Year", y = "Mean Gross Cov Edu"
+  )
+
+##Grouping gross coverage totals by year
+net_cov_year <- edu %>%
+  group_by(ano) %>%
+  summarise(
+    mean_net_cov = mean(net_cov_edu, na.rm = TRUE),
+    median_net_cov = median(net_cov_edu, na.rm = TRUE),
+    sd_net_cov = sd(net_cov_edu, na.rm = TRUE)
+  )
+
+ggplot(net_cov_year, aes(x = ano, y = mean_net_cov)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Average Net Cov Edu over time",
+    x = "Year", y = "Mean Net Cov Edu"
+  )
+
+
+
+
+
