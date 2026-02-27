@@ -360,7 +360,6 @@ models_dynamic <- feols(
   cluster = ~dept_code,
   data = merged
 )
-
 etable(models_dynamic)
 
 
