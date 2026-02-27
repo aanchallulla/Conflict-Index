@@ -190,6 +190,7 @@ kable(tab1, format = "latex", booktabs = TRUE,
   kable_styling(latex_options = c("hold_position")) %>%
   row_spec(0, bold = TRUE)
 
+<<<<<<< HEAD
 ##Running a normal FEOLS model
 ##Dept fixed effects
 dept_model1 <- feols(
@@ -212,6 +213,8 @@ dept_model3 <- feols(
   cluster = ~dept_code)
 summary(dept_model3)
 
+=======
+>>>>>>> a5c03bd03dd9ebe402f01395484741f927400510
 
 ##Running DID model - no controls - median cutoff
 models_dept <- feols(
@@ -360,7 +363,13 @@ models_dynamic <- feols(
   cluster = ~dept_code,
   data = merged
 )
+<<<<<<< HEAD
 etable(models_dynamic)
 
 
 
+=======
+
+etable(models_dynamic)
+
+>>>>>>> a5c03bd03dd9ebe402f01395484741f927400510
