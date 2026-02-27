@@ -361,15 +361,9 @@ models_dynamic <- feols(
     rural_i + effect_i + efficien_i | 
     dept_code + ano,
   cluster = ~dept_code,
-  data = merged
-)
-<<<<<<< HEAD
-etable(models_dynamic)
-
-
-
-=======
+  data = merged)
 
 etable(models_dynamic)
 
->>>>>>> a5c03bd03dd9ebe402f01395484741f927400510
+
+
