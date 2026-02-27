@@ -1,0 +1,2 @@
+##README
+Creating a conflict index for colombia using conflict events
